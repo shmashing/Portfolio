@@ -6,6 +6,15 @@
   <title>My Protolfio</title>
   <meta name="description" content="LOOK AT MY ACCOMPLISHMENTS">
   <link rel="stylesheet" href="~/css/main.css"/>
+  <script src= 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script>
+    $(document).ready(function(){
+      $('.nav_button').click(function(){
+        $(this).children('a').click();
+      });
+    });
+  </script>
+
 </head>
 <body>
   <div class="nav">
@@ -13,10 +22,10 @@
       <img src="~/images/avatar.png" class="avatar"/>
     </div>
     <ul class="nav_list">
-      <li class="nav_button"><div class="highlight"></div><a href="about_me">About Me</a></li>
-      <li class="nav_button"><div class="highlight"></div><a href="projects">My Projects</a></li>
-      <li class="nav_button highlighted"><div class="highlight"></div><a href="resume">Resume</a></li>
-      <li class="nav_button"><div class="highlight"></div><a href="contact_me">Contact</a></li>
+      <li class="nav_button"><a href="about_me" class="nav_link"><span>About Me</span></a></li>
+      <li class="nav_button"><a href="projects" class="nav_link"><span>My Projects<span></a></li>
+      <li class="nav_button highlighted"><a href="resume" class="nav_link"><span>Resume</span></a></li>
+      <li class="nav_button"><a href="contact_me" class="nav_link"><span>Contact</span></a></li>
     </ul>
     <div class="social_media">
       <a href="https://github.com/shmashing"><img src="~/images/github_logo.png" class="media_img"/></a>
@@ -25,11 +34,9 @@
     </div>
   </div>
 
-
-    <div class="resume">
+    <div class="body resume">
         <p><iframe src="~/images/resume.pdf" frameborder="0"></iframe></p>
     </div>
-
-
+    
 </body>
 </html>

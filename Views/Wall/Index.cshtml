@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Protolfio</title>
+  <meta name="description" content="LOOK AT MY ACCOMPLISHMENTS">
+  <link rel="stylesheet" href="~/css/main.css"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="avatar_cont">
+      <img src="~/images/avatar.png" class="avatar"/>
+    </div>
+    <ul class="nav_list">
+      <li class="nav_button"><a href="about_me" class="nav_link"><span>About Me</span></a></li>
+      <li class="nav_button"><a href="projects" class="nav_link"><span>My Projects<span></a></li>
+      <li class="nav_button"><a href="resume" class="nav_link"><span>Resume</span></a></li>
+      <li class="nav_button"><a href="contact_me" class="nav_link"><span>Contact</span></a></li>
+    </ul>
+    <div class="social_media">
+      <a href="https://github.com/shmashing"><img src="~/images/github_logo.png" class="media_img"/></a>
+      <a href="https://www.linkedin.com/in/kyle-mcfarland-a8a037149/"><img src="~/images/linkedin.png" class="media_img"/></a>
+      <a href="https://www.hackerrank.com/kyle_mcfar1291?hr_r=1"><img src="~/images/hackerrank_logo.png" class="media_img"/></a>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="welcome_content">
+      <h1 class="wht_courier">Hi there,</h1>
+      <h3 class="wht_courier inline">I'm Kyle:</h3> <span id="descriptors"></span>
+    </div>
+  </div>
+
+  <script>
+  	var words = ["Developer", "Gamer", "Musician", "Cool Guy", "Dog Dad", "Soccer Coach"],
+			el = document.getElementById('descriptors'),
+			word_counter = 0,
+			character_counter = 0;
+		function updateText()
+		{
+			var character = words[word_counter][character_counter++];
+
+			if(character === ' '){
+				character = "&nbsp;"
+			}
+			el.innerHTML = el.innerHTML+character;
+			
+			if(character_counter == words[word_counter].length+1)
+			{
+        setTimeout(function(){}, 600);
+				word_counter++; 	//choose a different word
+				character_counter = 0;	//start over with the first character of the word
+				el.innerHTML = '';  //set the html to be blank
+				//if we're displaying the last word, go back to the first word
+				if(word_counter == words.length)
+					word_counter = 0;
+			}
+		}
+		setInterval(updateText,250);
+  </script>
+</body>
+</html>

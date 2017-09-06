@@ -1,10 +1,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
+using System.Net;
  
 namespace Portfolio.Controllers
 {
-    public class DashController : Controller
+    public class WallController : Controller
     {
         [HttpGet]
         [Route("")]
@@ -43,16 +44,26 @@ namespace Portfolio.Controllers
 
         [HttpPost]
         [Route("contact_me")]
-        public IActionResult ProcessForm(FormViewModel form){
-            System.Console.WriteLine("Name: " + form.Name);
-            if(ModelState.IsValid){
-                System.Console.WriteLine(form.Name + " with email " + form.Email + " says:");
-                System.Console.WriteLine(form.Message);
+        public IActionResult ProcessForm(string Name, string Email, string Message){
+
+            System.Console.WriteLine(Name+ ","+ Email+ ", "+ Message);
+            bool successfulForm = true;
+            if(Name == null){
+                successfulForm = false;
+                ViewBag.name_error = "Please enter your name.";
+            }
+            if(Email == null){
+                successfulForm = false;
+                ViewBag.email_error = "Please enter an email.";
+            }
+            if(Message == null){
+                successfulForm = false;
+                ViewBag.msg_error = "Please enter a message for me.";
+            }
+            if(successfulForm){
                 return View("Thanks");
             }
-            else {
-                return View("ContactMe");
-            }
+            return View("ContactMe");
         }
     }
 }

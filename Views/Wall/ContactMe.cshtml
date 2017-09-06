@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>My Protolfio</title>
+  <meta name="description" content="LOOK AT MY ACCOMPLISHMENTS">
+    <link rel="stylesheet" href="~/css/main.css"/>
+</head>
+<body>
+  <div class="nav">
+    <div class="avatar_cont">
+      <img src="~/images/avatar.png" class="avatar"/>
+    </div>
+    <ul class="nav_list">
+      <li class="nav_button"><a href="about_me" class="nav_link"><span>About Me</span></a></li>
+      <li class="nav_button"><a href="projects" class="nav_link"><span>My Projects<span></a></li>
+      <li class="nav_button"><a href="resume" class="nav_link"><span>Resume</span></a></li>
+      <li class="nav_button highlighted"><a href="contact_me" class="nav_link"><span>Contact</span></a></li>
+    </ul>
+    <div class="social_media">
+      <a href="https://github.com/shmashing"><img src="~/images/github_logo.png" class="media_img"/></a>
+      <a href="https://www.linkedin.com/in/kyle-mcfarland-a8a037149/"><img src="~/images/linkedin.png" class="media_img"/></a>
+      <a href="https://www.hackerrank.com/kyle_mcfar1291?hr_r=1"><img src="~/images/hackerrank_logo.png" class="media_img"/></a>
+    </div>
+  </div>
+
+
+  <div class="body">
+    <h2 class="wht_courier contact_header">Please leave a message after the beep... *Beep*</h2>
+    <form asp-controller="Wall" asp-action="ProcessForm" method="post">
+      <table class="contact_table">
+        <tr>
+          <td><input name="Name" placeholder="Name" class="contact_input"/></td>
+          @{
+            if(@ViewBag.name_error != null){
+              <td><span class="wht_courier">@ViewBag.name_error </span></td>
+            }
+          }
+        </tr>
+        <tr>
+          <td><input name="Email" type="email" placeholder="Email" class="contact_input"/></td>
+          @{
+            if(@ViewBag.email_error != null){
+              <td><span class="wht_courier">@ViewBag.email_error </span></td>
+            }
+          }
+        </tr>
+        <tr>
+          <td><textarea name="Message" placeholder="Fly you fools.." class="contact_txt"></textarea></td>
+          @{
+            if(ViewBag.msg_error != null){
+              <td><span class="wht_courier">@ViewBag.msg_error </span></td>
+            }
+          }
+        </tr>
+        <tr>
+          <td><input type="submit" value="Send Carrier Pigeon"></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+</body>
+</html>
