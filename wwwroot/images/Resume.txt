@@ -1,0 +1,29 @@
+EDUCATION
+Coding DOJO BOOTCAMP - SEATTLE, WA (2017)
+Full Stack Python -
+	Worked with the Django framework and SQLite database structure to build web apps.
+	Capstone Project: Built a travel-buddy app with full login/registration and validation that allowed users to create vacation itinerary and join other users’ travel plans. 
+	Algorithmic work: Arrays(reverse, min/max, inserts, rotations), Strings(reverse, roman numerals, valid parenthesis pairs). 
+Full Stack C# -
+	Used the .net/Dapper and .net/Entity framework with the MVC model along with relational databases to build web apps.
+	Capstone Project: Built an eBay-like site with full login/registration and validation that allowed users to post items for auction with an ending date. Users had a wallet specific to their account and could bid on other auctions. Once auctions expired, users were appropriately billed.
+	Algorithmic work: Linked Lists(inserts, reverse, contains dedupes, palindromes), Recursion(Fibonacci, binary search), Trees(binary search, adds, removes, rotations).
+Full Stack MEAN -
+	Built reactive web apps using Angular4/Express/Node.js and learned how to interact with non-relational databases via MongoDB
+	Capstone Project: Built a twitter like site where users could post stories to their wall, or like  and comment on other users’ posts.
+	Algorithmic work: Sorts(n^2, nlogn), Hashes
+Technical SKILLS
+Python/Django
+ C#/.Net  
+Git/GitHub 
+MySQL/SQLite 
+MongoDB 
+Unity3D 
+Amazon Web Services
+Microsoft Azure Web Services
+HTML5/CSS3/Javascript
+RESTful App development
+SIDE PROJECTS
+PacMan - HTML/CSS/JS                                  -           https://github.com/shmashing/pacman
+3rd Person Shooter - Unity3D/C#                    -          https://github.com/shmashing/MobaLeague
+RogueLike Dungeon Crawler - Python3          -          https://github.com/shmashing/RogueLike

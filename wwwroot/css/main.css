@@ -214,4 +214,8 @@ iframe:focus {
     margin-left: 0.5em;
     border-right: 1px solid #777;
 }
-
+.resume_pdf {
+    width: 90%;
+    height: 40em;
+    margin-left: 10%;
+}
