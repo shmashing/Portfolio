@@ -2,6 +2,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Models;
 using System.Net;
+using System;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using System.Threading.Tasks;
  
 namespace Portfolio.Controllers
 {
@@ -61,9 +65,23 @@ namespace Portfolio.Controllers
                 ViewBag.msg_error = "Please enter a message for me.";
             }
             if(successfulForm){
+                SendMail(Name, Email, Message).Wait();
+
                 return View("Thanks");
             }
             return View("ContactMe");
+        }
+
+        static async Task SendMail(string Name, string Email, string Message){
+            string apiKey = Environment.GetEnvironmentVariable("SENDGRIDKEY");
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("myportfoliomonkey@gmail.com", "Email Monkey");
+            var subject = "Web Monkey Has News";
+            var to = new EmailAddress("kyle.mcfar1291@gmail.com", "Kyle");
+            var plainTextContent = "New Message from Website!";
+            var htmlContent = $"<h3><b>Name</b>: {Name}</h3> <br></br> <h3><b>Email</b>: {Email}</h3><p>{Message}";
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
         }
     }
 }
