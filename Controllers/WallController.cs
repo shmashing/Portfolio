@@ -79,7 +79,7 @@ namespace Portfolio.Controllers
             var subject = "Web Monkey Has News";
             var to = new EmailAddress("kyle.mcfar1291@gmail.com", "Kyle");
             var plainTextContent = "New Message from Website!";
-            var htmlContent = $"<h3><b>Name</b>: {Name}</h3> <br></br> <h3><b>Email</b>: {Email}</h3><p>{Message}";
+            var htmlContent = $"<h3><b>Name</b>: {Name}</h3>  <h3><b>Email</b>: {Email}</h3><p>{Message}";
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
         }
