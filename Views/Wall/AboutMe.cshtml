@@ -28,22 +28,81 @@
   <div class="body">
     <div class="bio_content">
       <ul>
-        <h1 class="bio_header"> Brief history of coding experience: </h1>
-        <h2 class="bio"> Originally from Tucson, Az.</h2>
-        <h2 class="bio"> Began coding C in my first CS course, 2013.</h2>
-        <h2 class="bio"> Started to learn Python shortly after.</h2>
-        <h2 class="bio"> Built my very first game in Python</h2>
-        <h2 class="bio"> Took my next CS course: Game-Oriented Java</h2>
-        <h2 class="bio"> Moved up to Seattle,Wa 2017 in pursuit of work</h2>
-        <h2 class="bio"> Joined up with The Coding Dojo, Bellevue to learn full-stack Python, full-stack C#/ASP.NET and the MEAN stack</h2>
+        <h1 class="bio_header"> Brief history of Kyle: </h1>
+        <h2 class="bio"> I am originally from Tucson, Az. I began coding with C in my first CS course
+                          at the University of Arizona. Shortly after, I began to learn Python and built
+                          my first game with the help of a couple tutorial blogs. I love video games, so naturally,
+                          I enrolled in my next CS course: Game-Oriented Java. After working in the service 
+                          industry for a little under 10 years, and figuring out college wasn't exactly for me
+                          I moved up to Seattle, WA. I decided a career change was in order and enrolled at
+                          the Coding Dojo. 
+        </h2>
+        <h2 class="bio">I recently graduated (Sept '17), and I am now looking for new opportunities
+                          in the world of Software!
+        </h2>
+
         <h1 class="bio_header"> When I am not coding, I am: </h1>
-        <h2 class="bio"> Playing- Piano, Destiny, No Man's Sky, League of Legends, With my Doggos</h2>
-        <h2 class="bio"> In Nature- hiking, swimming, riding bikes, rock climbing, catching Pokemon.</h2>  
+        <h2 class="bio"> Playing - <span id="play_descriptors" class="blue"></span></h2>
+        <h2 class="bio"> In Nature - <span id="nat_descriptors" class="blue"></span></h2>  
         <h2 class="bio_header"> Extreme dislikes: </h2>
-        <h2 class="bio"> Wet socks, flat soda, hot weather, coffee that is too hot</h2>
+        <h2 class="bio"> Wet socks, flat soda, hot weather, coffee too hot, and </h2>
       </ul>     
     </div>
   </div>
+  <script>
+  	var playing_desc = ["Piano", "Destiny", "No Man's Sky", "League of Legends", "or With my doggos"],
+			el = document.getElementById('play_descriptors'),
+			word_counter = 0,
+			character_counter = 0;
+		function updatePlayText()
+		{
+			var character = playing_desc[word_counter][character_counter++];
+			if(character === ' '){
+				character = "&nbsp;"
+			}
+			el.innerHTML = el.innerHTML+character;
+			
+			if(character_counter == playing_desc[word_counter].length)
+			{
+        setTimeout(function(){}, 600);
+				word_counter++; 	//choose a different word
+				character_counter = 0;	//start over with the first character of the word
 
+				//if we're displaying the last word, go back to the first word
+				if(word_counter == playing_desc.length){
+          loop2 = setInterval(updateNatureText, 180);
+        } else {
+          el.innerHTML = el.innerHTML + ', '; 
+        }
+			}
+		}
+    var nature_desc = ["Hiking", "Swimming", "Riding bikes", "Rock Climbing", "or Catching Pokemon"],
+      el2 = document.getElementById('nat_descriptors'),
+      word_counter2 = 0,
+      character_counter2 = 0;
+    function updateNatureText()
+		{
+			var character = nature_desc[word_counter2][character_counter2++];
+			if(character === ' '){
+				character = "&nbsp;"
+			}
+			el2.innerHTML = el2.innerHTML+character;
+			
+			if(character_counter2 == nature_desc[word_counter2].length)
+			{
+        setTimeout(function(){}, 600);
+				word_counter2++; 	//choose a different word
+				character_counter2 = 0;	//start over with the first character of the word
+
+				//if we're displaying the last word, go back to the first word
+				if(word_counter2 == nature_desc.length){
+          clearInterval(loop2);
+        } else {
+          el2.innerHTML = el2.innerHTML + ', '; 
+        }
+			}
+		}
+		var loop = setInterval(updatePlayText,180);
+  </script>
 </body>
 </html>
