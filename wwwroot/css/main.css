@@ -176,6 +176,7 @@ iframe:focus {
     outline: none;
 }
 .bio_header {
+    text-align: center;
     margin-bottom: 0.8em;
     margin-top: 0.6em;
     text-indent: -1.5em;
@@ -218,4 +219,7 @@ iframe:focus {
     width: 90%;
     height: 40em;
     margin-left: 10%;
+}
+.blue {
+    color: #07bebf;
 }
